@@ -1,0 +1,41 @@
+
+  
+   <br><br>
+      <div class="row">
+       
+
+            <div class="col-md-6 customerImage">
+                            <img ng-src="{{customer.logo_url}}">
+            </div>
+      
+    </div>
+
+    <div class="row">
+            <div class="col-md-6">
+                    <h1 >
+                      <span style="font-size:60px">{{customer.name}} </span>
+                    </h1>
+            </div>
+      
+    </div>
+
+    <div>
+          
+            <ul class="nav nav-tabs">
+                <li ng-class="{active:isActive('customer.general-info')}"><a ui-sref="customer.general-info">General</a></li>
+                <li ng-class="{active:isActive('customer.virtual-machines')}"><a ui-sref="customer.virtual-machines">Virtual Machines</a></li>
+                <li ng-class="{active:false}"><a href="#">Menu 3</a></li>
+            </ul>
+            <br>
+            <div ui-view>
+        
+            </div>
+        </div>
+       
+        
+      
+     
+      
+   
+   
+      

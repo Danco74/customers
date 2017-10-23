@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="angular-ui-grid/ui-grid.css" rel="stylesheet">
+
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="angular-ui-grid/ui-grid.js"></script>
+    <script src="@uirouter/core/_bundles/ui-router-core.js"></script>
+    <script src="@uirouter/angularjs/release/ui-router-angularjs.js"></script>
+
+
+    
+    <script src="chart/dist/Chart.js"></script>
+    <script src="angular-chart.js/dist/angular-chart.min.js"></script>
+
+
+
+    <!-- <link href="font-awesome/css/font-awesome.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="myStyle.css">
+    <title>Management</title>
+
+
+   
+</head>
+
+<body ng-app="customers-manager">
+
+    <div class="nav-side-menu">
+        <div class="brand"><a href="#" style="color:orange; font-size: 20px">TeraSky</a></div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+        <div class="menu-list" ng-controller="mainCtrl">
+
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                    <a href="#">
+                              <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                              </a>
+                </li>
+
+                <li data-toggle="collapse" data-target="#products" class="collapsed active">
+                    <a><i class="fa fa-tags fa-lg"></i> Customers <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li ng-repeat="customer in customers"><a ui-sref="customer.general-info({id: customer._id, customerParam: customer})">{{customer.name}}</a></li>
+
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                    <i class="fa fa-wrench"></i> Admin <span class="arrow"></span>
+                </li>
+                <ul class="sub-menu collapse" id="service">
+                    <li>
+                        <a ui-sref="add-customer.general-info">Add new customer</a>
+                    </li>
+                    <li>
+                            <a href="#">Settings</a>
+                        </li>
+                </ul>
+
+                <li>
+                    <a href="#">
+                              <i class="fa fa-users fa-lg"></i> Users
+                              </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-9 col-md-offset-3" ui-view style="margin-left: 320px">
+               
+        </div>
+    </div>
+
+    <script src="app/app.js"></script>
+    <script src="app/factories/customersFactory.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/customerCtrl.js"></script>
+    <script src="app/controllers/addCustomerCtrl.js"></script>
+    <script src="libs/xlsx.full.min.js"></script>
+    <script src="app/directives/sheetImport.js"></script>
+    <script src="app/controllers/DoghnutCtrl.js"></script>
+
+
+
+</body>
+
+</html>
